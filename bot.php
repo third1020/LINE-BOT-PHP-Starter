@@ -18,25 +18,10 @@ if (!is_null($events['events'])) {
 
 
 			// Build message to reply back
-      if(strpos($textFromUser,'ฟ')!==FALSE || strpos($textFromUser,'์')!==FALSE){
-						$text = $textFromUser;
-					}
-					else{
-						$text = strtolower($textFromUser);
-					}
-					$replyToken = $event['replyToken'];
-					if(strpos($text,'hi')!==FALSE || strpos($text,'hello')!==FALSE){
-						$textSend="Hello".$events['events'][0]['source']['userName'];
-					}
-					else if(strpos($text,'old')!==FALSE || strpos($text,'อายุ')!==FALSE){
-						$textSend="21 years old";
-					}
-					else if(strpos($text,'มิค')!==FALSE || strpos($text,'มิก')!==FALSE || strpos($text,'mic')!==FALSE){
-						$textSend = "หนุ่มแว่นติ๋มๆ";
-					}
-					else if(strpos($text,'คิดถึง')!==FALSE){
-						$textSend = "คิดถึงเหมือนกัน";
-					}
+      $messages = [
+  				'type' => 'text',
+  				'text' => $text
+  			];
 
 
 			// Make a POST Request to Messaging API to reply to sender
